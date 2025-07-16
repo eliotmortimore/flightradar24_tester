@@ -72,3 +72,33 @@ To add more functionality:
 - Implement additional API endpoints (airports, flights, etc.)
 - Add data validation and error handling
 - Implement caching for repeated queries
+
+## API Key Usage
+
+The tool supports both public and premium FlightRadar24 APIs:
+
+### Public API (Default)
+No API key required - works immediately:
+```bash
+python3 fr24_tester.py --aircraft_type C17 --limit 20
+```
+
+### Premium API
+For advanced features, create a `.env` file with your API key:
+```bash
+# .env file
+FR24_API_KEY=your_api_key_here
+```
+
+Then use the `--use_env_key` flag:
+```bash
+python3 fr24_tester.py --use_env_key --aircraft_type C17 --limit 20
+```
+
+### Installation with API Key Support
+```bash
+pip install -r requirements.txt
+```
+
+## Security Note
+The `.env` file containing your API key is automatically ignored by Git and will not be uploaded to the repository.
